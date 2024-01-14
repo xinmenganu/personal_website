@@ -17,7 +17,7 @@ title: Professor Xin Meng
 email: xin.meng@anu.edu.au
 description: >- # this means to ignore newlines until "baseurl:"
   Xin Meng is a Professor of Economics at the College of Business and Economics, Australian National University.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/personal_website" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 # github_username:  jekyll
