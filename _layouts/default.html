@@ -27,7 +27,7 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="{{ site.baseurl }}assets/css/icomoon.css">
@@ -61,11 +61,11 @@
 
 				<div class="xinmeng-footer">
 
-					<p>E: <a href="#">xin.meng@anu.edu.au</a><br>P: <a href="#">+61 2 6125 3102</a></p>
+					<p>E: <a href="mailto:xin.meng@anu.edu.au">xin.meng@anu.edu.au</a><br>P: <a href="tel:+61261253102">+61 2 6125 3102</a></p>
 
 
 					<!-- Link back to colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					<p style="color:#f2f3f7;"><small>&copy; Copyright 2023 All rights reserved. Made with <i class="icon-heart" aria-hidden="true"></i> by <a style="color:#f2f3f7;cursor: default;" href="https://colorlib.com" target="_blank">colorlib</a></small></p>
+					<!-- <p style="color:#f2f3f7;"><small>&copy; Copyright 2023 All rights reserved. Made with <i class="icon-heart" aria-hidden="true"></i> by <a style="color:#f2f3f7;cursor: default;" href="https://colorlib.com" target="_blank">colorlib</a></small></p> -->
 
 				</div>
 
@@ -73,18 +73,18 @@
 
 			<div id="xinmeng-main">
 				<section id="xinmeng-hero" class="fullheight xinmeng-hero" data-section="home">
-
+					
 					<div class="hero-copy">
 						<!-- <h1 class="title">Xin Meng</h1> -->
 						<div class="row">
-							<div class="">
+							<div class="copy">
 								<p>Xin Meng<br>
 									Professor<br>
 									Research School of Economics<br>
 									ANU College of Business and Economics<br>
 									The Australian National University</p>
 							</div>
-							<div class="">
+							<div class="copy copy-chinese">
 								<p>
 									孟昕<br>
 									教授<br>
@@ -144,7 +144,7 @@
 												<h4 class="panel-title">
 													<a data-toggle="collapse" data-parent="#accordion"
 														href="#collapseOne" aria-expanded="true"
-														aria-controls="collapseOne">Working Papers
+														aria-controls="collapseOne">Books
 													</a>
 												</h4>
 											</div>
@@ -153,13 +153,29 @@
 												<div class="panel-body">
 													<div class="row">
 														<div class="col-lg-12">
-															<ul>
-																{% for paper in site.data.working_papers %}
+															<ul class="book-listing">
+																{% for book in site.data.books %}
 																  <li>
-																	<a href="{{ paper.link }}">
-																	  {{ paper.title }}
-																	</a>
-																	{{ paper.authors }}
+																	{% if book.authors %}
+																	<span class="authors">
+																		{{ book.authors }}
+																	</span>
+																	{% endif %}
+																	{% if book.year %}
+																	<span class="year">
+																		{{ book.year }}
+																	</span>
+																	{% endif %}
+																	{% if book.title %}
+																	<span class="title">
+																		{{ book.title }}
+																	</span>
+																	{% endif %}
+																	{% if book.publisher %}
+																	<span class="journal">
+																		{{ book.publisher }}
+																	</span>
+																	{% endif %}
 																  </li>
 																{% endfor %}
 															</ul>
@@ -173,16 +189,53 @@
 												<h4 class="panel-title">
 													<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
 														href="#collapseTwo" aria-expanded="false"
-														aria-controls="collapseTwo">Publications
+														aria-controls="collapseTwo">Book Chapters
 													</a>
 												</h4>
 											</div>
 											<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
 												aria-labelledby="headingTwo">
 												<div class="panel-body">
-													<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto aliquid maiores labore cupiditate, autem tenetur ratione cum repellat blanditiis, porro dolore praesentium enim! Debitis nisi animi asperiores perspiciatis repudiandae molestias.</p>
-													<ul>
-														<li>Architecto aliquid maiores labore cupiditate, autem tenetur ratione cum repellat blanditiis</li>
+													<ul class="chapters-listing">
+														{% for chapters in site.data.chapters %}
+														  <li>
+															{% if chapters.authors %}
+															<span class="authors">
+																{{ chapters.authors }}
+															</span>
+															{% endif %}
+															{% if chapters.year %}
+															<span class="year">
+																{{ chapters.year }}
+															</span>
+															{% endif %}
+															{% if chapters.title %}
+															<span class="title">
+																{{ chapters.title }}
+															</span>
+															{% endif %}
+															{% if chapters.editors %}
+															<span class="editors">
+																{{ chapters.editors }}
+															</span>
+															{% endif %}
+															{% if chapters.book %}
+															<span class="book">
+																{{ chapters.book }}
+															</span>
+															{% endif %}
+															{% if chapters.publisher %}
+															<span class="publisher">
+																{{ chapters.publisher }}
+															</span>
+															{% endif %}
+															{% if chapters.pages %}
+															<span class="pages">
+																{{ chapters.pages }}
+															</span>
+															{% endif %}
+														  </li>
+														{% endfor %}
 													</ul>
 												</div>
 											</div>
@@ -192,60 +245,52 @@
 												<h4 class="panel-title">
 													<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
 														href="#collapseThree" aria-expanded="false"
-														aria-controls="collapseThree">Books
+														aria-controls="collapseThree">Journal Articles
 													</a>
 												</h4>
 											</div>
 											<div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
 												aria-labelledby="headingThree">
 												<div class="panel-body">
-													<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto aliquid maiores labore cupiditate, autem tenetur ratione cum repellat blanditiis, porro dolore praesentium enim! Debitis nisi animi asperiores perspiciatis repudiandae molestias.</p>
-													<ul>
-														<li>Architecto aliquid maiores labore cupiditate, autem tenetur ratione cum repellat blanditiis</li>
-													</ul>
+													<div class="row">
+														<div class="col-lg-12">
+															<ul class="research-listing">
+																{% for publication in site.data.publications %}
+																  <li>
+																	{% if publication.authors %}
+																	<span class="authors">
+																		{{ publication.authors }}
+																	</span>
+																	{% endif %}
+																	{% if publication.year %}
+																	<span class="year">
+																		{{ publication.year }}
+																	</span>
+																	{% endif %}
+																	{% if publication.title %}
+																	<span class="title">
+																		{{ publication.title }}
+																	</span>
+																	{% endif %}
+																	{% if publication.journal %}
+																	<span class="journal">
+																		{{ publication.journal }}
+																	</span>
+																	{% endif %}
+																	{% if publication.section %}
+																	<span class="section">
+																		{{ publication.section }}
+																	</span>
+																	{% endif %}
+																  </li>
+																{% endfor %}
+															</ul>
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
 
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingFour">
-												<h4 class="panel-title">
-													<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-														href="#collapseFour" aria-expanded="false"
-														aria-controls="collapseFour">Book Chapters
-													</a>
-												</h4>
-											</div>
-											<div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
-												aria-labelledby="headingFour">
-												<div class="panel-body">
-													<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto aliquid maiores labore cupiditate, autem tenetur ratione cum repellat blanditiis, porro dolore praesentium enim! Debitis nisi animi asperiores perspiciatis repudiandae molestias.</p>
-													<ul>
-														<li>Architecto aliquid maiores labore cupiditate, autem tenetur ratione cum repellat blanditiis</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingFive">
-												<h4 class="panel-title">
-													<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-														href="#collapseFive" aria-expanded="false"
-														aria-controls="collapseFive">Other
-													</a>
-												</h4>
-											</div>
-											<div id="collapseFive" class="panel-collapse collapse" role="tabpanel"
-												aria-labelledby="headingFive">
-												<div class="panel-body">
-													<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto aliquid maiores labore cupiditate, autem tenetur ratione cum repellat blanditiis, porro dolore praesentium enim! Debitis nisi animi asperiores perspiciatis repudiandae molestias.</p>
-													<ul>
-														<li>Architecto aliquid maiores labore cupiditate, autem tenetur ratione cum repellat blanditiis</li>
-													</ul>
-												</div>
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -261,20 +306,11 @@
 									<div class="col-md-12">
 										<div class="about-desc">
 											<h2 class="xinmeng-heading">RUMiC Project</h2>
-											<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore amet
-												odio minima voluptas nostrum recusandae dicta exercitationem molestiae
-												eius quas ad laborum, quasi dolores vero? Amet numquam ex vero quidem,
-												ipsum dolor sit amet consectetur adipisicing elit. Earum molestias esse
-												repellendus perspiciatis maxime neque itaque saepe ipsa hic debitis
-												architecto error aliquam sapiente, minus nam explicabo culpa accusantium
-												veniam.</p>
-											<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta, velit
-												dolorem dolorum nostrum magnam est, consectetur id quis ab harum neque,
-												atque eaque. Tenetur sint quam voluptatum iure officiis adipisci.</p>
+											<p>Coming soon...</p>
 										</div>
 									</div>
 								</div>
-
+<!-- 
 								<div id="xinmeng-counter" class="xinmeng-counters"
 									style="background-image: url(images/cover_bg_1.jpg);"
 									data-stellar-background-ratio="0.5">
@@ -305,7 +341,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 
 								<div class="row">
 									<div class="col-md-12">
@@ -334,27 +370,7 @@
 
 						<div class="row">
 							<div class="col-md-12">
-								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto officia vero commodi
-									voluptas tenetur impedit sequi suscipit modi provident sed. Corrupti, perferendis
-									harum porro natus delectus dolorem velit animi explicabo. Lorem ipsum dolor sit,
-									amet consectetur adipisicing elit. Repellendus saepe cupiditate distinctio
-									asperiores commodi. Neque deleniti voluptate architecto ut porro a, provident sint
-									ullam fuga, ea sequi quo. Debitis, et? Lorem ipsum dolor sit amet consectetur,
-									adipisicing elit. Corrupti cupiditate, temporibus delectus veritatis incidunt
-									excepturi porro. Consectetur similique, quod voluptate rem consequatur illum quo hic
-									repellat at. Ipsum, illum rerum.</p>
-
-								<ul>
-									<li>Laborum enim fugiat nemo earum delectus dolorum voluptas ex adipisci, ipsam
-										veritatis voluptatum.</li>
-									<li>Officiis odio fuga eius sunt similique fugit aspernatur omnis laborum enim
-										fugiat.</li>
-									<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. </li>
-								</ul>
-
-								<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit quas neque obcaecati
-									nesciunt adipisci? Cumque, nostrum cum ratione autem aperiam inventore magni numquam
-									odit, facilis, perspiciatis quo quas ea laborum!</p>
+								<p>Coming soon...</p>
 
 							</div>
 						</div>
