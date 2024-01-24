@@ -167,6 +167,12 @@
 
 	};
 
+	// Scroll to top of accordion after opening a panel
+	$("#collapseOne, #collapseTwo, #collapseThree").on('shown.bs.collapse', function() {
+		document.getElementById('accordion').scrollIntoView()
+	});
+
+
 
 	// Document on load.
 	$(function(){
