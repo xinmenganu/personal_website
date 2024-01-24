@@ -1198,24 +1198,24 @@ body {
 	cursor: pointer;
 	position: fixed;
 	bottom: 0;
-	right: 0;
-	margin-left: -15px;
-	height: 30px;
-	width: 30px;
+	left: 50%;
+	margin-left: -50px;
+	height: 50px;
+	width: 100px;
 	background-color: $brand-primary;
 	color: #fff;
-	border-radius: 30px 0 0 0;
+	border-radius: 50px 50px 0 0;
 	&:after {
 		font-family: "icomoon";
 		content: "\2191";
 		position: absolute;
 		left: 50%;
-		margin-left: -3px;
-		font-size: 19px;
+		margin-left: -15px;
+		font-size: 36px;
 		font-weight: bold;
 		top: 50%;
 		line-height: 1;
-		margin-top: -7px;
+		margin-top: -14px;
 	}
 	@media screen and (max-width: 520px) { 
 		display: block;
