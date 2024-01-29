@@ -2,25 +2,32 @@
 <html>
 
 <head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-R4PHHMRLBR"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', '{{ site.google_analytics }}');
+	</script>
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Professor Xin Meng</title>
+	<title>{{ site.title }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Xin Meng is a Professor of Economics at the College of Business and Economics,
-	Australian National University." />
-	<meta name="keywords" content="economics, professor, ANU, Xin Meng, Australian National University" />
-	<meta name="author" content="Xin Meng" />
+	<meta name="description" content="{{ site.description }}" />
+	<meta name="keywords" content="{{ site.keywords }}" />
+	<meta name="author" content="{{ site.author }}" />
 
 	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<meta property="og:title" content="{{ site.title }}" />
+	<meta property="og:image" content="{{ site.url }}images/xinmeng_og_image.jpg" />
+	<meta property="og:url" content="{{ site.url }}" />
+	<meta property="og:site_name" content="{{ site.title }}" />
+	<meta property="og:description" content="{{ site.description }}" />
+	<meta name="twitter:title" content="{{ site.title }}" />
+	<meta name="twitter:image" content="{{ site.url }}images/xinmeng_twitter_image.jpg" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
@@ -55,6 +62,7 @@
 							<li><a href="#research" data-nav-section="research">Research</a></li>
 							<li><a href="#rumic" data-nav-section="rumic">RUMiC Project</a></li>
 							<li><a href="#thoughts" data-nav-section="thoughts">Random Thoughts</a></li>
+							<li><a href="#contact" data-nav-section="contact">Contact</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -62,6 +70,8 @@
 				<div class="xinmeng-footer">
 
 					<p>E: <a href="mailto:xin.meng@anu.edu.au">xin.meng@anu.edu.au</a><br>P: <a href="tel:+61261253102">+61 2 6125 3102</a></p>
+
+					<p><a class="btn btn-danger" href="xinmeng_cv.pdf" title="Download Curriculum vitae">Curriculum vitae <i class="icon-file" aria-hidden="true"></i></a></p>
 
 
 					<!-- Link back to colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -78,20 +88,16 @@
 						<!-- <h1 class="title">Xin Meng</h1> -->
 						<div class="row">
 							<div class="copy">
-								<p>Xin Meng<br>
-									Professor<br>
-									Research School of Economics<br>
-									ANU College of Business and Economics<br>
-									The Australian National University</p>
+
+								{% capture my_include %}{% include home_english.md %}{% endcapture %}
+								{{ my_include | markdownify }}
+
 							</div>
 							<div class="copy copy-chinese">
-								<p>
-									孟昕<br>
-									教授<br>
-									经济研究院<br>
-									商业-经济学院<br>
-									澳大利亚国立大学
-								</p>
+
+								{% capture my_include %}{% include home_chinese.md %}{% endcapture %}
+								{{ my_include | markdownify }}
+
 							</div>
 						</div>
 
@@ -113,23 +119,8 @@
 							<div class="col-md-12">
 								<div class="research-desc">
 
-									<p>My research to date consists of following main themes:</p>
-
-									<ol>
-										<li>Important issues related to the Chinese labour market during the transition
-											process, including the impact of economic transition on income distribution,
-											the impact of labour market rigidity on economic development in China, and
-											rural-urban migration.</li>
-										<li>Wellbeing of the Chinese households during the economic transition, topics
-											including poverty, nutrition intake, consumption, health, education.</li>
-										<li>Ageing and pension reform in China.</li>
-										<li>The influence of institutions and culture on gender discrimination in China,
-											Taiwan, Australia, and France.</li>
-										<li>Economic assimilation of immigrants.</li>
-										<li>Economic implications of major catastrophes, such as the impact of the
-											Chinese famine and the Cultural Revolution on life time earnings and welfare
-											of individuals and families.</li>
-									</ol>
+									{% capture my_include %}{% include research.md %}{% endcapture %}
+									{{ my_include | markdownify }}
 
 								</div>
 							</div>
@@ -306,7 +297,10 @@
 									<div class="col-md-12">
 										<div class="about-desc">
 											<h2 class="xinmeng-heading">RUMiC Project</h2>
-											<p>Coming soon...</p>
+
+											{% capture my_include %}{% include rumic.md %}{% endcapture %}
+											{{ my_include | markdownify }}
+
 										</div>
 									</div>
 								</div>
@@ -345,10 +339,9 @@
 
 								<div class="row">
 									<div class="col-md-12">
-										<div class="hire">
-											<h2>Rural-Urban Migration in China (RUMiC) Project</h2>
-											<a href="#" class="btn-hire">Find Out More</a>
-										</div>
+										
+										<p><a href="https://github.com/rumic-anu"><img src="rumic_banner.png" title="Rural Urban Migration in China Project banner" style="width: 100%; max-width:600px;" /></a></p>
+
 									</div>
 								</div>
 							</div>
@@ -357,10 +350,7 @@
 
 				</section>
 
-
-
-
-				<section class="thoughts" data-section="thoughts">
+				<section id="thoughts" class="xinmeng-about" data-section="thoughts">
 					<div class="xinmeng-narrow-content">
 						<div class="row">
 							<div class="col-md-6 col-md-offset-3 col-md-pull-3">
@@ -370,7 +360,29 @@
 
 						<div class="row">
 							<div class="col-md-12">
-								<p>Coming soon...</p>
+
+								{% capture my_include %}{% include random_thoughts.md %}{% endcapture %}
+								{{ my_include | markdownify }}
+
+							</div>
+						</div>
+
+					</div>
+				</section>
+
+				<section id="contact" class="xinmeng-about" data-section="contact">
+					<div class="xinmeng-narrow-content">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 col-md-pull-3">
+								<h2 class="xinmeng-heading">Contact</h2>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+
+								{% capture my_include %}{% include contact.md %}{% endcapture %}
+								{{ my_include | markdownify }}
 
 							</div>
 						</div>
@@ -381,8 +393,6 @@
 			</div><!-- end:xinmeng-main -->
 		</div><!-- end:container-wrap -->
 	</div><!-- end:xinmeng-page -->
-
-	<div id="backTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"></div>
 
 	<!-- jQuery -->
 	<script src="{{ site.baseurl }}assets/js/jquery.min.js"></script>

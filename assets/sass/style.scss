@@ -1192,36 +1192,17 @@ body {
 
 }
 
-#backTop {
-	display: none;
-	z-index: 999;
-	cursor: pointer;
-	position: fixed;
-	bottom: 0;
-	left: 50%;
-	margin-left: -50px;
-	height: 50px;
-	width: 100px;
-	background-color: $brand-primary;
-	color: #fff;
-	border-radius: 50px 50px 0 0;
-	&:after {
-		font-family: "icomoon";
-		content: "\2191";
-		position: absolute;
-		left: 50%;
-		margin-left: -15px;
-		font-size: 36px;
-		font-weight: bold;
-		top: 50%;
-		line-height: 1;
-		margin-top: -14px;
-	}
-	@media screen and (max-width: 520px) { 
-		display: block;
-	}
-}
-
+// .download-btn {
+// 	//border: 2px solid $brand-primary;
+// 	background: $brand-primary;
+// 	color: $brand-black;
+// 	display: inline-block;
+// 	padding: 0.25rem 1rem;
+// 	line-height: 1;
+// 	i {
+// 		font-size: 1.8rem;
+// 	}
+// }
 
 
 // Helper Class
